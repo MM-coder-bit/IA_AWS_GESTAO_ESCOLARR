@@ -1,4 +1,4 @@
-# Deploy de Modelo de Machine Learning na Nuvem AWS Para Gestão de Escolas
+# Projeto 3 - Deploy de Modelo de Machine Learning na Nuvem AWS Para Gestão de Escolas
 # App Web
 
 # Imports
@@ -16,7 +16,7 @@ def carregar_arquivo(caminho):
         return pickle.load(file)
 
 # Carrega o modelo e o scaler
-modelo = carregar_arquivo('modelo_final.pkl')
+modelo = carregar_arquivo('modelo_dsa_final.pkl')
 scaler = carregar_arquivo('scaler_final.pkl')
 
 # Rota para a página web de entrada
@@ -56,7 +56,6 @@ def previsao():
     except Exception as e:
         resultado = f"Erro na previsão: {e}"
 
-    # REnderiza novamente a página HTML, mas agora com o resultado do modelo
     return render_template('index.html', result=resultado)
 
 if __name__ == "__main__":
