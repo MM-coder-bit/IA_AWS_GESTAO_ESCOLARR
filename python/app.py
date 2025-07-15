@@ -8,7 +8,10 @@ import pandas as pd
 from flask import Flask, render_template, request
 
 # Cria a app
-app = Flask(__name__)
+#app = Flask(__name__)
+
+# Cria a app com caminho personalizado para templates
+app = Flask(__name__, template_folder='../templates')
 
 # Função para carregar o modelo ou scaler
 def carregar_arquivo(caminho):
@@ -16,8 +19,8 @@ def carregar_arquivo(caminho):
         return pickle.load(file)
 
 # Carrega o modelo e o scaler
-modelo = carregar_arquivo('modelo_dsa_final.pkl')
-scaler = carregar_arquivo('scaler_final.pkl')
+modelo = carregar_arquivo('../weights/dsa_final.pkl')
+scaler = carregar_arquivo('../weights/scaler_final.pkl')
 
 # Rota para a página web de entrada
 @app.route('/')
